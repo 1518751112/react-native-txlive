@@ -6,7 +6,8 @@ import {
   findNodeHandle,
   UIManager,
   View,
-  StyleProp, ViewStyle,
+  StyleProp,
+  ViewStyle,
 } from 'react-native';
 import * as PropTypes from 'prop-types';
 const { Txlive } = NativeModules;
@@ -61,7 +62,7 @@ export class TxlivePlayerView extends Component<TxPlayerProps> {
     url: PropTypes.string,
   };
 
-  constructor(props: Object) {
+  constructor(props: any) {
     super(props);
     this.state = {
       stopPlay: false,
@@ -70,18 +71,23 @@ export class TxlivePlayerView extends Component<TxPlayerProps> {
 
   }
 
-  _assignRoot = (component) => {
+  _assignRoot = (component:any) => {
+    // @ts-ignore
     this._root = component;
   };
 
-  _dispatchCommand = (command, params = []) => {
+  _dispatchCommand = (command:string, params:any[] = []) => {
+    // @ts-ignore
     if (this._root) {
+      // @ts-ignore
       UIManager.dispatchViewManagerCommand(findNodeHandle(this._root), command, params);
     }
   };
 
-  setNativeProps = (props) => {
+  setNativeProps = (props:any) => {
+    // @ts-ignore
     if (this._root) {
+      // @ts-ignore
       this._root.setNativeProps(props);
     }
   };
@@ -130,7 +136,9 @@ export class TxlivePlayerView extends Component<TxPlayerProps> {
       <RCTTxlivePlayerView
         {...this.props}
         ref={this._assignRoot}
+        // @ts-ignore
         stopPlay={this.state.stopPlay || false}
+        // @ts-ignore
         destroyPlay={this.state.destroyPlay || false}
         // onChange={this._onChange.bind(this)}
       />

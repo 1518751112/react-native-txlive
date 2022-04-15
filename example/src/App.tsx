@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, View, Dimensions, Button,Text } from 'react-native';
 import {
-  TxlivePlayerView,
+  // TxlivePlayerView,
   TxlivePusherView,
   multiply,
 } from 'react-native-txlive';
@@ -30,7 +30,8 @@ export default class App extends React.Component<any, any> {
     return (
       <View style={styles.container}>
         {this.state.pushUrl?<TxlivePusherView url={this.state.pushUrl||''} pausePush={this.state.pausePush||false}  resumePush={this.state.resumePush||false} frontCamera = {this.state.frontCamera} style={styles.player} />:null}
-        {this.state.playUrl?<TxlivePlayerView url={this.state.playUrl||''} startPlay={this.state.startPlay||false} stopPlay={this.state.stopPlay||false} log={false} renderRotation={0} renderMode={1} style={styles.player} />:null}
+
+        {/*{this.state.playUrl?<TxlivePlayerView url={this.state.playUrl||''} startPlay={this.state.startPlay||false} stopPlay={this.state.stopPlay||false} log={false} renderRotation={0} renderMode={1} style={styles.player} />:null}*/}
         {/* {this.state.playUrlm3u8?<Video source={{uri:this.state.playUrlm3u8||''}} style={styles.player} />:null} */}
         <View style={styles.box}>
           <Text>{'这是覆盖层文字'}</Text>
